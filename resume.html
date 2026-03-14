@@ -250,7 +250,38 @@
     }
 
     @media print {
-      body { background: #fff; }
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+
+      body {
+        background: #ffffff;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .page {
+        width: 100%;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .hero {
+        break-inside: avoid;
+      }
+
+      .card {
+        break-inside: avoid;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
       .page {
         width: 100%;
         margin: 0;
