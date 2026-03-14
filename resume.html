@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lexi Zhou | Resume</title>
+  <style>
+    :root {
+      --bg: #fff9f2;
+      --paper: #ffffff;
+      --text: #2d2a26;
+      --muted: #6f675f;
+      --accent: #f28c38;
+      --accent-soft: #ffe9d6;
+      --line: #f1e4d9;
+      --tag: #fff3e8;
+      --shadow: 0 12px 30px rgba(120, 72, 22, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, #fff8f5 0%, #fffdfc 100%);
+      color: var(--text);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.45;
+    }
+
+    .page {
+      width: 900px;
+      margin: 32px auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    .hero {
+      padding: 42px 48px 28px;
+      background: radial-gradient(circle at top right, #ffd9b3 0%, #fff3e6 32%, #ffffff 68%);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .name-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 40px;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 620px;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .contact a, .contact span {
+      text-decoration: none;
+      color: var(--text);
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .intro {
+      margin-top: 22px;
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      padding: 18px 18px 18px 20px;
+      border-radius: 16px;
+      font-size: 15px;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 0;
+    }
+
+    .sidebar {
+      padding: 28px 24px 34px 34px;
+      background: #fffaf7;
+      border-right: 1px solid var(--line);
+    }
+
+    .main {
+      padding: 28px 34px 36px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+    }
+
+    .section:last-child { margin-bottom: 0; }
+
+    .section-title {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: inline-block;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--tag);
+      border: 1px solid var(--line);
+      font-size: 12px;
+      color: var(--text);
+    }
+
+    .small-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+
+    .small-list li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 18px 18px 16px;
+      margin-bottom: 16px;
+      background: #fffefd;
+    }
+
+    .card:last-child { margin-bottom: 0; }
+
+    .role-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 6px;
+    }
+
+    .role {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    .date {
+      white-space: nowrap;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .company {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 8px 0 12px;
+    }
+
+    .links a {
+      color: #c96a18;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      background: var(--accent-soft);
+      padding: 8px 10px;
+      border-radius: 999px;
+    }
+
+    ul.bullets {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    ul.bullets li {
+      margin-bottom: 8px;
+      font-size: 14px;
+    }
+
+    .subhead {
+      margin: 14px 0 8px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #8e4061;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .edu {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .edu strong {
+      display: block;
+      font-size: 15px;
+    }
+
+    .footer-note {
+      padding: 0 34px 26px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    @media print {
+      body { background: #fff; }
+      .page {
+        width: 100%;
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
+      a { color: inherit; }
+    }
+
+    @media (max-width: 960px) {
+      .page { width: calc(100% - 24px); margin: 12px auto; }
+      .content { grid-template-columns: 1fr; }
+      .sidebar { border-right: none; border-bottom: 1px solid var(--line); }
+      .name-row { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="name-row">
+        <div>
+          <h1>Lexi Zhou</h1>
+          <div style="font-size:13px;color:#6f675f;margin-top:4px;">
+            Built with HTML + AI assistance • <a href="https://github.com/Lexiliciouss/lexi-resume" target="_blank" style="color:#c96a18;text-decoration:none;">view source</a>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="contact">
+        <span>Sydney, NSW</span>
+        <span>0414 046 665</span>
+        <a href="mailto:lexizhou22@gmail.com">lexizhou22@gmail.com</a>
+        <a href="https://www.linkedin.com/in/lexi-zhou/" target="_blank">LinkedIn</a>
+        <a href="https://github.com/Lexiliciouss" target="_blank">GitHub</a>
+      </div>
+
+      <div class="intro">
+        Hello! Nice to meet you ･ᴗ･ I am a <strong>technical builder</strong> with experience across <strong>software engineering, automation, and AI-assisted product development</strong>, with an additional background in <strong>healthcare and biomedical engineering</strong>. I enjoy <strong>rapidly prototyping ideas</strong>, building tools, and experimenting with new technologies to improve workflows and user experiences. Outside of work, I’m a big <strong>pet lover</strong> and recently started a <strong>pet influencer Instagram account</strong> for my Russian Blue cat. I enjoy creating content and experimenting with AI-assisted editing and storytelling. I’m someone who believes work should be creative, fun, and meaningful — when you genuinely enjoy what you’re building, the work-life balance tends to take care of itself.
+      </div>
+    </section>
+
+    <section class="content">
+      <aside class="sidebar">
+        <section class="section">
+          <h2 class="section-title">Core Skills</h2>
+          <div class="tags">
+            <span class="tag">Cursor</span>
+            <span class="tag">Claude</span>
+            <span class="tag">AI-assisted coding</span>
+            <span class="tag">Prompt engineering</span>
+            <span class="tag">Automation workflows</span>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">HTML/CSS</span>
+            <span class="tag">React</span>
+            <span class="tag">Flask</span>
+            <span class="tag">FastAPI</span>
+            <span class="tag">API integrations</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Git</span>
+            <span class="tag">CI/CD</span>
+            <span class="tag">Linux</span>
+            <span class="tag">AWS</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Data analysis</span>
+            <span class="tag">Experiment design</span>
+            <span class="tag">Content strategy</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Grafana</span>
+            <span class="tag">Short-form editing</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Certifications</h2>
+          <ul class="small-list">
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>AWS Certified Solutions Architect</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Education</h2>
+          <div class="edu">
+            <strong>Master of Engineering Science</strong><br>Biomedical Engineering (2017 – 2019)<br />University of New South Wales
+          </div>
+          <div class="edu">
+            <strong>Bachelor of Engineering</strong><br>Pharmaceutical Engineering (2013 – 2017)<br />East China University of Science and Technology
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Additional</h2>
+          <ul class="small-list">
+            <li>Languages: English & Mandarin</li>
+            <li>KARI Student Mentor</li>
+            <li>Optus First Aider</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">REFEREES</h2>
+          <ul class="small-list">
+            
+            <li>Available upon request</li>
+          </ul>
+        </section>
+      </aside>
+
+      <div class="main">
+        <section class="section">
+          <h2 class="section-title">Projects & Experiments</h2>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">Operation App for Bakery Factory</div>
+              <div class="date">Version 1.0 · In progress</div>
+            </div>
+            <div class="company">Lightweight operations app built with AI-assisted workflows</div>
+            <div class="links">
+              <a href="https://cakeworkshopbengong.vercel.app/" target="_blank">Live Demo</a>
+              <a href="https://github.com/Lexiliciouss/cakeworkshop_bengong" target="_blank">GitHub</a>
+            </div>
+            <ul class="bullets">
+              <li>Built a lightweight operational web application to track employees and products for a small business workflow.</li>
+              <li>Developed using AI-assisted coding with Cursor and deployed through Vercel.</li>
+              <li>Integrated the frontend with Supabase and worked through deployment, database, and environment setup issues.</li>
+              <li>Used the project to explore rapid prototyping and lightweight product building for real-world operations.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">Influencer Growth & Content Creation</div>
+              <div class="date">Current</div>
+            </div>
+            <div class="company">Building audience, content systems, and experimentation loops across pet and physio brands</div>
+            <div class="links">
+              <a href="https://www.instagram.com/volleyball_physio/" target="_blank">@volleyball_physio</a>
+              <a href="https://www.instagram.com/mixel_blueheart/" target="_blank">@mixel_blueheart</a>
+            </div>
+
+            <div class="subhead">Volleyball Physio — Brand Creative Director</div>
+            <ul class="bullets">
+              <li>Managing content production for a sports physiotherapy brand with 20k+ followers.</li>
+              <li>Assisting with producing educational sports rehab content and supporting experiments with hooks, storytelling structures, and audience engagement ideas.</li>
+              <li>Editing short-form videos with AI-assisted workflows and social-first creative thinking.</li>
+            </ul>
+
+            <div class="subhead">Pet Influencer Page – Mixel</div>
+            <ul class="bullets">
+              <li>Recently launched a Russian Blue cat Instagram account and started building repeatable content series.</li>
+              <li>Using AI tools for scripting, editing, captions, and creative storytelling experiments.</li>
+              <li>Exploring how audience growth, content style, and niche positioning work in practice.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title">Professional Experience</h2>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">Associate Software Engineer</div>
+              <div class="date">Feb 2022 – Present</div>
+            </div>
+            <div class="company">Optus · Networks Advanced Systems & Automation · Sydney</div>
+            <ul class="bullets">
+              <li>Contributed to internal automation platforms including ZTP UI, NetBox Integration, Renaissance Network Automation, and Automation Portal.</li>
+              <li>Built automated end-to-end tests using Playwright, improving release confidence and reducing manual testing effort.</li>
+              <li>Developed backend and scripting tools using Python Flask and TypeScript.</li>
+              <li>Built NetBox ingestion scripts to automate network data validation.</li>
+              <li>Integrated testing workflows into CI/CD pipelines using Bamboo and OpenShift.</li>
+              <li>Worked closely with network engineers during UAT and deployment troubleshooting.</li>
+            </ul>
+
+            <div class="subhead">AI Tribe Rotation</div>
+            <ul class="bullets">
+              <li>Developed Kotlin-based webhook integrations for voice intent systems.</li>
+              <li>Built Python scripts to transform JSON data pipelines.</li>
+              <li>Implemented a Dockerised CI/CD proof-of-concept for development workflows.</li>
+            </ul>
+
+            <div class="subhead">IP Networks Automation Rotation</div>
+            <ul class="bullets">
+              <li>Developed frontend features using React and Material UI.</li>
+              <li>Worked with Python FastAPI and Flask backend services.</li>
+              <li>Contributed to automation workflows for Nokia network devices using Ansible Tower.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">Lead Teacher (Part‑time)</div>
+              <div class="date">Feb 2026 – Present</div>
+            </div>
+            <div class="company">AI Camp · Reddam House North Sydney</div>
+            <ul class="bullets">
+              <li>Teaching after‑school AI classes for Year 7 students, introducing core concepts such as machine learning, data, and responsible AI.</li>
+              <li>Designing and delivering interactive lessons that help students understand AI through hands‑on activities and simple coding exercises.</li>
+              <li>Helping students develop curiosity about technology while building foundational digital literacy skills.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">Clinical Trial Administrator</div>
+              <div class="date">Jul 2021 – Feb 2022</div>
+            </div>
+            <div class="company">Novotech · Sydney</div>
+            <ul class="bullets">
+              <li>Supported clinical research project coordination and documentation management across global trial sites.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">Quality Engineer</div>
+              <div class="date">Mar 2021 – Jul 2021</div>
+            </div>
+            <div class="company">3M Australia · Contract · Sydney</div>
+            <ul class="bullets">
+              <li>Supported quality management documentation and regulatory compliance processes.</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="role-row">
+              <div class="role">QA Associate</div>
+              <div class="date">Jan 2020 – Mar 2021</div>
+            </div>
+            <div class="company">Homart Pharmaceuticals · Sydney</div>
+            <ul class="bullets">
+              <li>Conducted product quality investigations and supported regulatory documentation.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+    </section>
+
+    
+  </main>
+</body>
+</html>
