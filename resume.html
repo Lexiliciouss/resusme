@@ -97,6 +97,10 @@
       gap: 0;
     }
 
+    .print-layout {
+      display: none;
+    }
+
     .sidebar {
       padding: 28px 24px 34px 34px;
       background: #fffaf7;
@@ -107,8 +111,14 @@
       padding: 28px 34px 36px;
     }
 
+    .print-only {
+      display: none;
+    }
+
     .section {
       margin-bottom: 28px;
+      break-inside: auto;
+      page-break-inside: auto;
     }
 
     .section:last-child { margin-bottom: 0; }
@@ -123,6 +133,8 @@
       letter-spacing: 0.14em;
       color: var(--muted);
       font-weight: 800;
+      break-after: avoid;
+      page-break-after: avoid;
     }
 
     .section-title::before {
@@ -160,8 +172,15 @@
       font-size: 14px;
     }
 
+    .section > .section-title + .card {
+      break-before: avoid;
+      page-break-before: avoid;
+    }
+
     .card {
       border: 1px solid var(--line);
+      break-inside: avoid;
+      page-break-inside: avoid;
       border-radius: 18px;
       padding: 18px 18px 16px;
       margin-bottom: 16px;
@@ -251,14 +270,21 @@
 
     @media print {
       @page {
-        size: A4;
-        margin: 12mm;
+        size: A4 landscape;
+        margin: 10mm;
+      }
+
+      html, body {
+        width: 297mm;
+        height: auto;
       }
 
       body {
         background: #ffffff;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
+        font-size: 12px;
+        line-height: 1.35;
       }
 
       .page {
@@ -267,29 +293,165 @@
         border: none;
         box-shadow: none;
         border-radius: 0;
+        overflow: visible;
       }
 
       .hero {
+        padding: 22px 28px 18px;
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .contact {
+        gap: 6px;
+        margin-top: 12px;
+      }
+
+      .contact a, .contact span {
+        padding: 5px 10px;
+        font-size: 11px;
+      }
+
+      .intro {
+        margin-top: 14px;
+        padding: 14px 16px;
+        font-size: 11.5px;
+      }
+
+      .content {
+        display: block;
+        font-size: 0;
+      }
+
+      .sidebar,
+      .main {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 12px;
+      }
+
+      .sidebar {
+        width: 26%;
+        padding: 20px 18px 24px 24px;
+        border-right: 1px solid var(--line);
+        page-break-inside: avoid;
+      }
+
+      .main {
+        width: 74%;
+        padding: 20px 24px 24px;
+      }
+
+      .section {
+        margin-bottom: 16px;
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .section-title {
+        margin: 0 0 8px;
+        font-size: 10.5px;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .section-title::before {
+        width: 8px;
+        height: 8px;
+      }
+
+      .tags {
+        gap: 6px;
+      }
+
+      .tag {
+        padding: 4px 8px;
+        font-size: 10.5px;
+      }
+
+      .small-list {
+        padding-left: 16px;
+      }
+
+      .small-list li {
+        margin-bottom: 5px;
+        font-size: 11px;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .edu {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .edu strong {
+        font-size: 11.5px;
       }
 
       .card {
+        padding: 12px 14px 10px;
+        margin-bottom: 12px;
+        border-radius: 12px;
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .role-row {
+        margin-bottom: 4px;
+        gap: 10px;
+      }
+
+      .role {
+        font-size: 14px;
+      }
+
+      .date {
+        font-size: 11px;
+      }
+
+      .company {
+        font-size: 11px;
+        margin-bottom: 8px;
+      }
+
+      .links {
+        gap: 6px;
+        margin: 6px 0 8px;
+      }
+
+      .links a {
+        font-size: 10px;
+        padding: 5px 8px;
+      }
+
+      ul.bullets li {
+        margin-bottom: 5px;
+        font-size: 11px;
         break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .subhead {
+        margin: 10px 0 5px;
+        font-size: 10.5px;
+        break-after: avoid;
+        page-break-after: avoid;
+      }
+
+      .section-professional {
+        page-break-before: always;
+        break-before: page;
       }
 
       a {
         color: inherit;
         text-decoration: none;
       }
-    }
-      .page {
-        width: 100%;
-        margin: 0;
-        border: none;
-        box-shadow: none;
-        border-radius: 0;
-      }
-      a { color: inherit; }
     }
 
     @media (max-width: 960px) {
@@ -307,7 +469,7 @@
         <div>
           <h1>Lexi Zhou</h1>
           <div style="font-size:13px;color:#6f675f;margin-top:4px;">
-            Built with HTML + AI assistance • <a href="https://github.com/Lexiliciouss/resusme/blob/main/resume.html" target="_blank" style="color:#c96a18;text-decoration:none;">view source</a>
+            Built with HTML + AI assistance • <a href="https://github.com/Lexiliciouss/resusme/blob/main/resume.html" target="_blank" style="color:#c96a18;text-decoration:none;font-weight:600;">view source ↗</a>
           </div>
           
         </div>
@@ -406,6 +568,7 @@
               <div class="date">Version 1.0 · In progress</div>
             </div>
             <div class="company">Lightweight operations app built with AI-assisted workflows</div>
+            <div style="font-size:12px;color:#8a6a55;margin-bottom:8px;">Stack: Next.js · Supabase · Vercel · OpenAI API · Cursor</div>
             <div class="links">
               <a href="https://cakeworkshopbengong.vercel.app/" target="_blank">Live Demo</a>
               <a href="https://github.com/Lexiliciouss/cakeworkshop_bengong" target="_blank">GitHub</a>
